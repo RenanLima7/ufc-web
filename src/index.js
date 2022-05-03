@@ -30,12 +30,6 @@ app.get("/", (req, res) => {
   res.render("home", { title: "Loja de Produtos" });
 });
 
-app.get("/home", (req, res) => {
-  res.render("home", { title: "Loja de Produtos" });
-});
 
-app.get("/sobre", (req, res) => {
-  res.render("sobre");
-});
 
 app.listen(3000);
