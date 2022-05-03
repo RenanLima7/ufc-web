@@ -2,7 +2,7 @@ const { randomUUID } = require("crypto");
 
 let produtos = [];
 
-function addProduto({ nome, descricao, preco, categoria, camposCustomizados }) {
+function addProduto({ nome, descricao, preco, categoria, camposCustomizados, usuario }) {
   const id = randomUUID();
   produtos.push({
     id,
@@ -11,6 +11,7 @@ function addProduto({ nome, descricao, preco, categoria, camposCustomizados }) {
     preco,
     categoria,
     camposCustomizados,
+    usuario
   });
 }
 
@@ -21,6 +22,7 @@ function editProduto({
   preco,
   categoria,
   camposCustomizados,
+  usuario
 }) {
   const produto = produtos.map((item) => {
     if (item.id === id) {
@@ -31,6 +33,7 @@ function editProduto({
         preco: preco || item.preco,
         categoria: categoria || item.categoria,
         camposCustomizados: camposCustomizados || item.camposCustomizados,
+        usuario: item.usuario
       };
     }
 
@@ -48,6 +51,11 @@ function findProdutoById(id) {
 
 function getProduto() {
   return produtos;
+}
+
+function getProdutoByUser(usuario) {
+  const produto = produtos.find((item) => item.usuario === usuario);
+  return produto;
 }
 
 module.exports = { addProduto, getProduto, editProduto, findProdutoById };

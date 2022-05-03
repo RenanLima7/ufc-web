@@ -1,22 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <%- include('partials/header')  -%> 
-    <div class="flex justify-center items-center h-full w-full m-auto mt-40">
-     <div class="flex justify-center flex-col p-4 mr-10 max-w-4xl">
-      <h1 class="font-bold text-8xl mb-4 text-slate-800">Bem-vindo</h1>
-      <p class="font-medium text-lg ml-[6px] max-w-md tracking-wide leading-relaxed text-gray-600">
-        Gerencie seus produtos da melhor maneira possível para o seu negócio.</p>
-     </div>
 
-      <img alt="imagem" src="img/img.png" class="w-[40vw] h-[50vh]" />
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-indigo-100">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+
+    <div class="bg-indigo-600 lg:min-h-screen lg:flex lg:items-center p-8 sm:p-12">
+      <div class="flex-grow">
+        <h1 class="text-white text-center text-2xl sm:text-5xl mb-2">
+          Seja Bem Vindo(a)!
+        </h1>
+        <p class="text-center text-blue-200 sm:text-lg">
+          Faça seu login para começar
+        </p>
+      </div>
     </div>
-  </body>
+
+    <div class="lg:min-h-screen lg:flex lg:items-center p-12 sm:p-24 xl:p-48">
+      <div class="flex-grow bg-white shadow-xl rounded-md border border-gray-300 p-8">
+
+        <div class="sm:flex sm-items-center">
+          <img src="img/rosto.jpg" alt="Rosto Qualquer" class="sm:flex-shrink-0 mx-auto sm:mx-0 h-24 rounded-full">
+          <div class="sm:ml-4 sm:text-left text-center">
+            <p class="text-xl">
+              Fulana de Tal
+            </p>
+            <p class="text-sm text-gray-600">
+              Funcionária
+            </p>
+            <div class="mt-4">
+              <button
+                class="text-red-500 hover:text-white hover:bg-red-500 border border-red-500 font-semibold rounded-md text-xs px-4 py-1 outline-none"
+                type="button">
+                Não é você?
+              </button>
+            </div>
+          </div>
+        </div>
+        <form action="/produtos" class="flex w-full mt-8">
+          <input type="password" placeholder="Sua Senha" required
+            class="flex-1 text-gray-700 bg-gray-200 rounded-md hover:bg-white border border-gray-200 outline-none focus:bg-white py-2 px-4">
+          <button type="submit"
+            class="flex-shrink-0 bg-teal-500 hover:bg-teal-600 outline-none px-4 py-2 ml-4 text-white font-semibold rounded-md">
+            Entrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
-
-  
-
