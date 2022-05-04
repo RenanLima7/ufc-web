@@ -19,6 +19,7 @@
           <th class="py-2 px-8 bg-gray-200 text-zinc-600 font-normal">Categoria</th>
           <th class="py-2 px-8 bg-gray-200 text-zinc-600 font-normal">Preço</th>
           <th class="py-2 px-8 bg-gray-200 text-zinc-600 font-normal">Editar</th>
+          <th class="py-2 px-8 bg-gray-200 text-zinc-600 font-normal">Usuário</th>
         </tr>
     </thead>
         <tbody class="text-center w-5">
@@ -26,7 +27,7 @@
             <tr>
                 <td class="font-normal text-lg py-3 px-3">
                     <button class="outline-none border-0" type="button" id="table-id" onclick="mostarCampos('<%= element.id%>')" >
-                        <%= element.id.substring(0, 6) %> 
+                        <%= element.id.substring(0, 4) %> 
                     </button>
                     </td>
                 <td class="font-normal text-lg">
@@ -42,6 +43,9 @@
                 <td class="font-normal text-lg">
                     R$ <%= element.preco %> 
                 </td>
+                <td class="font-normal text-lg">
+                    R$ <%= element.usuario %> 
+                </td>
                 <td> <a href=<%=`/produto-editar?id=${element.id}` %>>
                     <div class="flex justify-center">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg>
@@ -55,7 +59,7 @@
         </tbody>
     </table>
     <button class="mt-6 ml-3">
-        <a class="p-2 bg-slate-700 rounded text-slate-200" href="/produto-criar">
+        <a class="p-2 text-slate-200 hover:bg-indigo-800 rounded text-slate-200" href="/produto-criar">
             Cadastrar produto
         </a>
     </button>
@@ -94,10 +98,15 @@
                 let inputPre = document.createElement('input');
                 let labelPre = document.createElement('label');
 
+                let inputUsu = document.createElement('input');
+                let labelUsu = document.createElement('label');
+
+                let classCustom = "border outline-none border-gray-300 rounded p-2 mb-4 focus:ring-2 focus:border-blue-200 focus:ring-blue-200 transition duration-300 ease-in-out";
+
                 labelId.textContent = 'ID: ';
                 inputId.value = dataTable.id;
                 inputId.readOnly = true;
-                inputId.className = 'border outline-none border-gray-300 rounded p-2 mb-4 focus:ring-2 focus:border-blue-200 focus:ring-blue-200 transition duration-300 ease-in-out'
+                inputId.className = classCustom;
 
                 labelId.append(inputId);
                 wrapper.appendChild(labelId)
@@ -105,7 +114,7 @@
                 labelNome.textContent = 'Nome: ';
                 inputNome.value = dataTable.nome;
                 inputNome.readOnly = true;
-                inputNome.className = 'border outline-none border-gray-300 rounded p-2 mb-4 focus:ring-2 focus:border-blue-200 focus:ring-blue-200 transition duration-300 ease-in-out'
+                inputNome.className = classCustom;
 
                 labelNome.append(inputNome);
                 wrapper.appendChild(labelNome)
@@ -113,7 +122,7 @@
                 labelDesc.textContent = 'Descrição: ';
                 inputDesc.value = dataTable.descricao;
                 inputDesc.readOnly = true;
-                inputDesc.className = 'border outline-none border-gray-300 rounded p-2 mb-4 focus:ring-2 focus:border-blue-200 focus:ring-blue-200 transition duration-300 ease-in-out'
+                inputDesc.className = classCustom;
 
                 labelDesc.append(inputDesc);
                 wrapper.appendChild(labelDesc)
@@ -121,7 +130,7 @@
                 labelCat.textContent = 'Categoria: ';
                 inputCat.value = dataTable.categoria;
                 inputCat.readOnly = true;
-                inputCat.className = 'border outline-none border-gray-300 rounded p-2 mb-4 focus:ring-2 focus:border-blue-200 focus:ring-blue-200 transition duration-300 ease-in-out'
+                inputCat.className = classCustom;
 
                 labelCat.append(inputCat);
                 wrapper.appendChild(labelCat)
@@ -129,10 +138,18 @@
                 labelPre.textContent = 'Preço: ';
                 inputPre.value = dataTable.preco;
                 inputPre.readOnly = true;
-                inputPre.className = 'border outline-none border-gray-300 rounded p-2 mb-4 focus:ring-2 focus:border-blue-200 focus:ring-blue-200 transition duration-300 ease-in-out'
+                inputPre.className = classCustom;
 
                 labelPre.append(inputPre);
                 wrapper.appendChild(labelPre)
+
+                labelUsu.textContent = 'Usuário: ';
+                inputUsu.value = dataTable.usuario;
+                inputUsu.readOnly = true;
+                inputUsu.className = classCustom;
+
+                labelUsu.append(inputUsu);
+                wrapper.appendChild(labelUsu)
 
                 camposProduto.appendChild(wrapper)
             }
